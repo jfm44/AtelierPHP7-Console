@@ -34,26 +34,29 @@ echo "\n" . sommeNonTypee("1",2);
 // Le passage de variable se fait par defaut par valeur
 function multiplierParDeuxTab(array $tab)
 {
-    echo "\n Debut multiplierParDeuxTab \n";
-    $i=0;
-    for($i=0;i<count($tab);$i++)
+    echo "\n===> Debut multiplierParDeuxTab \n";
+    for($i=0;$i<count($tab);$i++)
     {
         $tab[$i] = $tab[$i] * 2;
     }
-    echo "\n Fin multiplierParDeuxTab \n";
+    echo "Fin multiplierParDeuxTab<=== \n";
 }
 
 // Ici le passage de variable se fait reference
 function multiplierParDeuxTabRef(array &$tab)
 {
-    for($i=0;i<count($tab);$i++)
+    echo "\n===>Debut multiplierParDeuxTabRef \n";
+    for($i=0;$i<count($tab);$i++)
     {
         $tab[$i] = $tab[$i] * 2;
     }
+    echo "Fin multiplierParDeuxTabRef<=== \n";
 }
 
 $monTab = [1,2,3,4,5,6];
 
 multiplierParDeuxTab($monTab);
-printf ("\n %s", implode("/", $monTab));
-//echo "\n" . multiplierParDeuxTabRef($monTab);
+printf ("%s\n ", implode("/", $monTab));
+
+multiplierParDeuxTabRef($monTab);
+printf ("%s\n ", implode("/", $monTab));
